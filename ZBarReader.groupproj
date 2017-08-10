@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{16787843-6DAA-42F9-ADB1-DF1197FA3A4A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ZBarReaderSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TMSFMXZBarReaderPkgDXE5.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ZBarReaderSample">
+        <MSBuild Projects="ZBarReaderSample.dproj"/>
+    </Target>
+    <Target Name="ZBarReaderSample:Clean">
+        <MSBuild Projects="ZBarReaderSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ZBarReaderSample:Make">
+        <MSBuild Projects="ZBarReaderSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TMSFMXZBarReaderPkgDXE5">
+        <MSBuild Projects="TMSFMXZBarReaderPkgDXE5.dproj"/>
+    </Target>
+    <Target Name="TMSFMXZBarReaderPkgDXE5:Clean">
+        <MSBuild Projects="TMSFMXZBarReaderPkgDXE5.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TMSFMXZBarReaderPkgDXE5:Make">
+        <MSBuild Projects="TMSFMXZBarReaderPkgDXE5.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ZBarReaderSample;TMSFMXZBarReaderPkgDXE5"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ZBarReaderSample:Clean;TMSFMXZBarReaderPkgDXE5:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ZBarReaderSample:Make;TMSFMXZBarReaderPkgDXE5:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
